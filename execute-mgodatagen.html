@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executing mgodatagen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff00cc 0%, #3333ff 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+        
+        h1 {
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .back-button {
+            background: white;
+            color: #ff00cc;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Executing mgodatagen</h1>
+        <p class="status">Attempting to execute the mgodatagen executable...</p>
+        <p>Please wait while the process completes.</p>
+        <button class="back-button" onclick="window.location.href='index.html'">Return to Store</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusElement = document.querySelector('.status');
+            
+            // Attempt to execute the shell script that will run the mgodatagen executable
+            try {
+                // Method 1: Using a custom protocol handler (requires system configuration)
+                window.location.href = 'file:///Users/vyyu/Desktop/Empty/execute-mgodatagen.sh';
+                
+                // Update status after a delay (since the above might navigate away)
+                setTimeout(() => {
+                    statusElement.textContent = "Execution request sent. Check terminal for results.";
+                    
+                    // Add additional instructions
+                    const container = document.querySelector('.container');
+                    const instructionsElement = document.createElement('div');
+                    instructionsElement.innerHTML = `
+                        <p style="margin-top: 20px; font-style: italic;">
+                            Note: Due to browser security restrictions, you may need to:
+                            <ol style="text-align: left; margin-top: 10px;">
+                                <li>Open a terminal</li>
+                                <li>Navigate to: /Users/vyyu/Desktop/Empty</li>
+                                <li>Run: ./execute-mgodatagen.sh</li>
+                            </ol>
+                        </p>
+                    `;
+                    container.insertBefore(instructionsElement, document.querySelector('.back-button'));
+                }, 1000);
+            } catch (error) {
+                statusElement.textContent = "Error: " + error.message;
+                console.error("Error executing mgodatagen:", error);
+                
+                // Show manual instructions
+                const container = document.querySelector('.container');
+                const instructionsElement = document.createElement('div');
+                instructionsElement.innerHTML = `
+                    <p style="margin-top: 20px; font-style: italic;">
+                        Please execute manually:
+                        <ol style="text-align: left; margin-top: 10px;">
+                            <li>Open a terminal</li>
+                            <li>Navigate to: /Users/vyyu/Desktop/Empty</li>
+                            <li>Run: ./execute-mgodatagen.sh</li>
+                        </ol>
+                    </p>
+                `;
+                container.insertBefore(instructionsElement, document.querySelector('.back-button'));
+            }
+        });
+    </script>
+</body>
+</html>

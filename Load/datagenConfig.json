@@ -1,0 +1,79 @@
+[
+  {
+    "database": "userdb",
+    "collection": "usercollection",
+    "count": 50000000,
+    "content": {
+      "key": {
+        "type" : "autoincrement",
+        "autoType" : "long"
+      },
+      "FirstName": {
+        "type": "faker",
+        "method": "FirstName"
+      },
+      "LastName": {
+        "type": "faker",
+        "method": "LastName"
+      },
+      "NamePrefix": {
+        "type": "faker",
+        "method": "NamePrefix"
+      },
+      "NameSuffix": {
+        "type": "faker",
+        "method": "NameSuffix"
+      },
+      "Phone": {
+        "type": "faker",
+        "method": "Phone"
+      },
+      "Email": {
+        "type": "faker",
+        "method": "Email"
+      },
+      "Street": {
+        "type": "faker",
+        "method": "Street"
+      },
+      "City": {
+        "type": "faker",
+        "method": "City"
+      },
+      "PetData": {
+        "type": "object",
+        "objectContent": {
+          "PetName": {
+            "type": "faker",
+            "method": "PetName"
+          },
+          "Pet": {
+            "type": "faker",
+            "method": "Animal"
+          }
+        }
+      },
+      "CarData": {
+        "type": "object",
+        "objectContent": {
+          "CarMaker": {
+            "type": "faker",
+            "method": "CarMaker"
+          },
+          "CarModel": {
+            "type": "faker",
+            "method": "CarModel"
+          },
+          "CarFuelType": {
+            "type": "faker",
+            "method": "CarFuelType"
+          },
+          "CarType": {
+            "type": "faker",
+            "method": "CarType"
+          }
+        }
+      }
+    }
+  }
+]
