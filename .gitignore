@@ -51,3 +51,6 @@ instance/
 
 # Log files
 *.log
+
+# Database environment variables
+database.env

@@ -24,10 +24,14 @@ def execute_mgodatagen():
             # Make sure it's executable
             os.chmod(mgodatagen_path, 0o755)
             
-            # Execute the mgodatagen executable
+            # Execute the shell script instead of directly calling the executable
+            shell_script_path = os.path.join(base_dir, 'execute-mgodatagen.sh')
+            # Make sure the shell script is executable
+            os.chmod(shell_script_path, 0o755)
+            
+            # Execute the shell script
             result = subprocess.run(
-                [mgodatagen_path],
-                cwd=load_dir,
+                [shell_script_path],
                 capture_output=True,
                 text=True
             )
