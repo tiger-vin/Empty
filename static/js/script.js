@@ -32,7 +32,7 @@ function showConfirmationModal() {
     
     // Set initial modal content
     modalTitle.textContent = 'Confirm Purchase';
-    modalMessage.textContent = 'You are about to purchase Ultra Boost X9000 for $299.99';
+    modalMessage.textContent = 'You are about to purchase 50,000,000 shoes for $349.99 each';
     orderNumber.textContent = `Order #: DB${Math.floor(Math.random() * 10000)}`;
     executionOutput.style.display = 'none';
     
@@ -73,7 +73,7 @@ function executeMgodatagen() {
     
     // Update modal content to show processing
     modalTitle.textContent = 'Processing...';
-    modalMessage.textContent = 'Executing mgodatagen executable...';
+    modalMessage.textContent = 'Executing the order...';
     
     // Remove confirm button if it exists
     const confirmButton = modal.querySelector('.confirm-button');
